@@ -18,6 +18,7 @@ water_l = water_ml / 1000
 
 
 def get_age_word(age: int) -> str:
+    """Возвращает правильную форму слова для возраста."""
     if 11 <= age % 100 <= 14:
         return 'лет'
     if age % 10 == 1:
