@@ -1,3 +1,8 @@
+import sys
+
+sys.stdin.reconfigure(encoding='utf-8')
+sys.stdout.reconfigure(encoding='utf-8')
+
 user_name = input('Введите имя: ')
 user_age = int(input('Введите возраст: '))
 user_weight = float(input('Введите вес в кг: '))
@@ -12,17 +17,15 @@ water_ml = user_weight * 30
 water_l = water_ml / 1000
 
 
-def get_age_word(age):
-    word = None
-    if user_age in range(10, 21):
-        word = 'лет'
-    elif user_age % 10 in [2, 3, 4]:
-        word = 'года'
-    elif user_age % 10 in [0, 5, 6, 7, 8, 9]:
-        word = 'лет'
-    else:
-        word = 'год'
-    return word
+def get_age_word(age: int) -> str:
+    if 11 <= age % 100 <= 14:
+        return 'лет'
+    if age % 10 == 1:
+        return 'год'
+    if age % 10 in (2, 3, 4):
+        return 'года'
+    return 'лет'
+
 
 age_word = get_age_word(user_age)
 
